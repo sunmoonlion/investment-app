@@ -1,63 +1,101 @@
-# 前端开发计划（FRONTEND PLAN）
+# Research App Frontend Plan
 
-> 确认要做哪些页面、路由、核心组件，以及开发顺序。
+## Decision
 
----
+`research-app` follows the v4 Agent pairing decision:
 
-## 技术栈
+```text
+research-admin-frontend (Vue 3 + Vite + Element Plus)
+  -> research-admin-backend /api/admin/**
 
-- 框架：{{Next.js 16 / Nuxt 3 / Vue 3 + Vite}}
-- UI 库：{{shadcn/ui / Element Plus / ...}}
-- 状态管理：{{Zustand / Pinia}}
-- HTTP 客户端：{{axios / ky}}
-- 认证：{{Casdoor OIDC BFF}}
+research-web-frontend (Next.js)
+  -> research-admin-backend /api/agent/** directly
+  -> UIEvent + LiveDelta streams
 
----
+research-web-backend / nodebullworker
+  -> not in the M1 Agent critical path
+  -> optional M2 BFF only when SSR/SEO, cross-app aggregation, or Node-side auth gateway is justified
+```
 
-## 路由规划
+The reason is that Agent execution, checkpoints, interrupt/resume, event
+projection, and SSE all live in the Python/FastAPI/LangGraph runtime. Routing
+Agent traffic through Node in M1 would duplicate streaming and reconnect
+semantics without adding product value.
 
-| 路由 | 页面 | 是否需要登录 | 优先级 |
-|------|------|------------|--------|
-| `/login` | 登录页 | 否 | P0 |
-| `/dashboard` | 首页/仪表盘 | 是 | P0 |
-| `/{{path}}` | {{页面名}} | 是 | P1 |
+## Admin Frontend Scope
 
----
+Use `research-admin-frontend` only for internal management:
 
-## 开发顺序
+- AgentProfile and runtime configuration management;
+- prompt/config review;
+- admin-only diagnostics;
+- deployment/traffic gate controls;
+- operational audit and recovery views.
 
-### P0：主链路（必须先完成）
+It should not become the end-user Agent chat/workspace UI.
 
-1. **登录页** `/login`
-   - 点击登录 → 跳转 Casdoor
-   - 回调处理（BFF 模式）
-   - 未登录跳转守卫
+## Agent Web Frontend Scope
 
-2. **{{核心页面 1}}** `/{{path}}`
-   - {{主要功能点}}
+Use `research-web-frontend` for end-user Agent product flows:
 
-### P1：核心功能
+- session creation and run start;
+- SSE timeline connected to `/api/agent/sessions/{session_id}/stream`;
+- persisted UIEvent replay with `last_event_id`;
+- LiveDelta typewriter/progress rendering;
+- interrupt/resume UX;
+- tool cards, files, Markdown preview, and sandbox/VNC viewer;
+- user-facing workspace/session navigation once M2 workspace is introduced.
 
-3. **{{页面名}}** `/{{path}}`
-   - {{主要功能点}}
+## mooc-manus/ui Absorption
 
-### P2：次要功能
+Use old `mooc-manus/ui` as a golden sample for shell and interaction patterns,
+not as a data-layer migration.
 
-4. **{{页面名}}** `/{{path}}`
-   - {{主要功能点}}
+Absorb:
 
----
+- Next/React/Tailwind/Radix/shadcn shell style;
+- VNC sandbox viewer;
+- SSE typewriter timeline;
+- tool call cards;
+- Markdown/file preview;
+- interrupt waiting state.
 
-## 公共组件
+Rebuild:
 
-| 组件 | 用途 | 依赖页面 |
-|------|------|---------|
-| `<Layout>` | 全局布局（导航 + 内容区） | 所有登录后页面 |
-| `<AuthGuard>` | 未登录跳转守卫 | 所有需要登录的页面 |
-| `{{组件名}}` | {{用途}} | {{依赖页面}} |
+- event consumption;
+- session/message/state data shapes;
+- backend API clients;
+- auth and reconnect logic.
 
----
+Frontend consumes only:
 
-## 不做
+- `UIEvent` for persisted timeline projections;
+- `LiveDelta` for disposable live typing/progress updates.
 
-- {{明确排除的功能，e.g. 移动端适配、国际化（Phase 1 不做）}}
+Frontend must not consume raw LangGraph events or old overloaded Event payloads.
+
+## API Boundary Rules
+
+- `research-web-frontend` calls `/api/agent/**` on `research-admin-backend`.
+- `research-admin-frontend` calls `/api/admin/**` on `research-admin-backend`.
+- End-user tokens must not reach `/api/admin/**`.
+- Staff impersonation of an end-user run must be explicit and audited.
+- `research-web-backend` is not used for run/start/resume/SSE in M1.
+
+## M1 Acceptance
+
+The first Agent UI slice is complete when `research-web-frontend` can:
+
+1. create an Agent session;
+2. start a run;
+3. subscribe to SSE;
+4. render persisted UIEvents;
+5. render LiveDelta separately and reconcile with final UIEvent;
+6. resume an interrupt;
+7. reconnect with `last_event_id` without duplicate or missing persisted UIEvents.
+
+## Validation
+
+- `research-web-frontend`: run `pnpm typecheck` and `pnpm build`.
+- `research-admin-frontend`: run `pnpm type-check` and `pnpm build-only`.
+- Backend Agent API changes must keep Phase 0 replay/SSE validation green.
