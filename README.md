@@ -14,9 +14,8 @@
 investment-app/
 ├── init.sh                  # 初始化脚本
 ├── .cursor/rules/           # Cursor 规则（.mdc，按 globs 生效）
-├── CLAUDE.md                # Claude Code 项目上下文模板
-├── docs-claude/             # Claude Code 文档体系模板
-├── docs-cursor/             # Cursor 文档体系模板
+├── CLAUDE.md                # AI 协作入口（不保存平行项目事实）
+├── docs/                    # 工具无关的当前文档入口
 ├── investment-admin-frontend/      # 管理后台前端（Vue 3 + Vite，CSR）
 ├── investment-admin-backend/       # 管理后台后端（FastAPI + SQLAlchemy）
 ├── investment-web-frontend/        # 用户端前端（Next.js 16，SSR）
