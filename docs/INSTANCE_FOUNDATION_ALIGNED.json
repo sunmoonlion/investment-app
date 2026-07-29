@@ -5,7 +5,7 @@
   "task": "V5-P0-009E",
   "component_commits": {
     "research-admin-frontend": "32b3bcaf156f12fa780d4a38ec84912f8621cf66",
-    "research-admin-backend": "1c20a1c90289c9bed89f4d025ab6bc78650efa49",
+    "research-admin-backend": "74d28699899183c43ab3cfca069d21c56ac58e61",
     "research-web-frontend": "bfee1704c0272a5525abbb1383db5fea14328c07",
     "research-web-backend": "9cc463424d42f658296ccb06965e61a276adcf48"
   },
