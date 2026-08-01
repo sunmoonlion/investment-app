@@ -7,6 +7,10 @@ alwaysApply: false
 # 前端（用户端 SSR / Next.js）
 
 - 技术栈：Next.js + React + shadcn/ui 等以 `app/package.json` 为准；内置 BFF 路由见项目内 `/api/auth/` 等实现。
+- research-app 采用 v4 特殊配对：`research-web-frontend` 是 Agent 终端用户 UI，M1 直连 `research-admin-backend` 的 `/api/agent/**`。
+- M1 不通过 `research-web-backend` / Node BFF 代理 run/start/resume/SSE；Node BFF 仅作为 M2 触发式能力。
+- 前端只消费 `UIEvent` 和 `LiveDelta`；禁止订阅 raw LangGraph events 或旧 MoocManus 的 overloaded Event payload。
+- 可吸收 `mooc-manus/ui` 的壳和交互范式（VNC、时间线、工具卡、Markdown、interrupt），但数据层必须按 v4 §18 重接。
 - 先联调后美化：先打通接口与导航，再抠样式细节。
 - 鉴权：遵循模板既定模式（Casdoor BFF / session）；不随意把 access token 写入 `localStorage`，除非文档明确约定。
 - 请求封装：优先使用项目已有 axios/fetch 封装与 React Query 等模式，避免页面内重复造轮子。
