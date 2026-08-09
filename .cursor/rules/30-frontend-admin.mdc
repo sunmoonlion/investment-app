@@ -1,17 +1,18 @@
 ---
-description: 管理后台 Vue 3 + Vite（research-admin-frontend）
-globs: **/*admin-frontend/**/*.{vue,ts,tsx}
+description: Investment 管理端 Next.js（investment-admin-frontend）
+globs: **/*admin-frontend/**/*.{tsx,ts,jsx}
 alwaysApply: false
 ---
 
-# 前端（管理端 CSR）
+# 前端（管理端 Next.js）
 
-- 技术栈：Vue 3 + Vite + Element Plus 等以子模块现有依赖为准。
-- research-app 的 Agent 终端用户 UI 不放在 admin-frontend；admin-frontend 只做内部管理、配置、诊断和流量门控。
-- admin-frontend 只消费 `research-admin-backend` 的 `/api/admin/**` 管理 API 面，不承接 `/api/agent/**` 的用户对话主链路。
+- 技术栈：Next.js + React + Ant Design；以子模块当前锁文件和组件规范为准。
+- Agent 终端用户 UI 不放在 admin-frontend；admin-frontend 只做内部管理、配置、诊断和流量门控。
+- admin-frontend 只消费统一 `investment-backend` 的 `/api/admin/**` 管理 API 面，不承接用户端主链路。
 - 先联调后美化：先保证页面可用、接口打通，再做视觉细节。
 - 接口适配：统一封装请求、鉴权、错误提示，避免页面内散落裸 HTTP。
 - 与后端对齐：字段名、状态码、分页结构以后端与 `API_CONTRACT` 为准。
 - 字段容错：对空值/老字段做兜底，避免白屏。
 - 状态可追踪：关键列表/表单覆盖 loading / error / empty / success。
 - 改动可回归：每完成一个模块，附最小手工测试步骤。
+- Docker/standalone：保持 Next.js standalone 产物、非 root 运行与严格 CSP/TLS 门禁。

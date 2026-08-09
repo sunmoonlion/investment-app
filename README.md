@@ -22,6 +22,11 @@ Admin 和 Web 是两个独立前端表面，但共同调用同一个 Backend。�
 `research-web-backend` 已从活动 submodule 拓扑移除并保留为只读归档，不得重新作为第二个运行
 Backend 引入。
 
+API、Celery Worker、Scheduler 与 Migration 是同一个 `investment-backend` 镜像的不同运行
+角色，不是独立源码项目。父仓不得恢复 `celeryworker-*`、`nodebullworker-*`、旧
+`k8s-scaffold/` 或四组件 `init.sh`；Architecture v2 部署的唯一模板来源是
+`tpl-app/k8s-scaffold-v2`。
+
 ## 迁移边界
 
 - 源码身份改为 `investment-*`，但合法的投资研究领域术语可以继续使用 `research`；禁止全局替换。
@@ -35,11 +40,15 @@ Backend 引入。
 推送顺序始终是先子仓、后父仓；父仓只记录子仓提交指针：
 
 ```bash
+git -C investment-backend push origin architecture-v2
 git -C investment-backend push gitee architecture-v2
+git -C investment-admin-frontend push origin architecture-v2
 git -C investment-admin-frontend push gitee architecture-v2
+git -C investment-web-frontend push origin architecture-v2
 git -C investment-web-frontend push gitee architecture-v2
+git push origin architecture-v2
 git push gitee architecture-v2
 ```
 
-GitHub Investment 仓库创建或改名完成后，统一恢复 `origin=GitHub`、`gitee=Gitee`。当前所有
-`research-*-archive` remote 只用于追溯和回滚，禁止向其发布 Investment 提交。
+GitHub `origin` 是规范远端，Gitee `gitee` 是镜像远端；两者的 `architecture-v2` 必须指向同一
+提交。当前所有 `research-*-archive` remote 只用于追溯和回滚，禁止向其发布 Investment 提交。
