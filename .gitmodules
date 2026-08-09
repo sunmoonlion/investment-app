@@ -1,12 +1,9 @@
-[submodule "research-admin-frontend"]
-	path = research-admin-frontend
-	url = https://github.com/sunmoonlion/research-admin-frontend.git
-[submodule "research-web-backend"]
-	path = research-web-backend
-	url = https://github.com/sunmoonlion/research-web-backend.git
-[submodule "research-web-frontend"]
-	path = research-web-frontend
-	url = https://github.com/sunmoonlion/research-web-frontend.git
-[submodule "research-admin-backend"]
-	path = research-admin-backend
-	url = https://github.com/sunmoonlion/research-admin-backend.git
+[submodule "investment-backend"]
+	path = investment-backend
+	url = https://gitee.com/sunmoonlion/investment-admin-backend.git
+[submodule "investment-admin-frontend"]
+	path = investment-admin-frontend
+	url = https://gitee.com/sunmoonlion/investment-admin-frontend.git
+[submodule "investment-web-frontend"]
+	path = investment-web-frontend
+	url = https://gitee.com/sunmoonlion/investment-web-frontend.git
