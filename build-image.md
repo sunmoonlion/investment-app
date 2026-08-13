@@ -19,7 +19,7 @@ Investment 只构建三个源码镜像：
 2. 候选镜像使用不可变候选 tag，推送到 `harbor.sunmoonai.com:30443/app-images`；
 3. 记录 Registry 返回的 manifest digest；
 4. 将三个 digest 写入 K8s 仓库 Investment `release-inputs.json`；
-5. 使用 `tpl-app/k8s-scaffold-v2` 生成、计划、部署并执行完整门禁；
+5. 使用 `tpl-app/k8s-deployment` 生成、计划、部署并执行完整门禁；
 6. 只有 R7 通过后才能把同一 digest 晋级为正式 `2.0.0`，不得重新构建后再打正式 tag。
 
 Kubernetes 清单必须引用 `repository@sha256:...`，不能把可移动 tag 当作发布锁。具体构建参数以三个子仓的 `mybuild/` 为准；具体迁移和发布阶段以 K8s 仓库 `sunmoonai/docs/investment清理和改名.md` 为准。

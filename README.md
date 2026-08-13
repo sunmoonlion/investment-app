@@ -24,8 +24,8 @@ Backend 引入。
 
 API、Celery Worker、Scheduler 与 Migration 是同一个 `investment-backend` 镜像的不同运行
 角色，不是独立源码项目。父仓不得恢复 `celeryworker-*`、`nodebullworker-*`、旧
-`k8s-scaffold/` 或四组件 `init.sh`；Architecture v2 部署的唯一模板来源是
-`tpl-app/k8s-scaffold-v2`。
+`k8s-scaffold/` 或四组件 `init.sh`；正式部署的唯一模板来源是
+`tpl-app/k8s-deployment`。
 
 ## 已完成的迁移边界
 
@@ -50,7 +50,6 @@ git push gitee architecture-v2
 ```
 
 GitHub `origin` 是规范远端，Gitee `gitee` 是镜像远端；两者的 `architecture-v2` 必须指向同一
-提交。GitHub 后端仓库已使用规范名称 `investment-backend`；Gitee 尚未创建同名仓库，因此其
-镜像 remote 暂时继续指向历史 URL `investment-admin-backend`。这只是远端命名兼容，不代表
-存在第二个 Backend；待 Gitee 仓库完成改名后只需更新 remote URL，不改源码、子模块指针或
-运行拓扑。旧 Research 仓库不配置为本地发布 remote；历史追溯使用 tag 和 Git 历史。
+提交。两个远端的后端仓库均使用规范名称 `investment-backend`，本地 remote 不得再指向
+`investment-admin-backend`。旧 Research 仓库不配置为本地发布 remote；历史追溯使用 tag 和
+Git 历史。

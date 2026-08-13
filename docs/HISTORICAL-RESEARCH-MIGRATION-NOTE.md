@@ -11,7 +11,7 @@
 - 活动源码拓扑为 `investment-backend`、`investment-admin-frontend`、
   `investment-web-frontend` 三个子模块；
 - API、Worker、Scheduler、Migration 是统一 Backend 的运行角色；
-- 当前部署模板来源为 `tpl-app/k8s-scaffold-v2`；
+- 当前部署模板来源为 `tpl-app/k8s-deployment`；
 - R7.1 已关闭回滚观察窗并退役 Research K8s 运行态；
 - 跨仓迁移阶段、数据切换与退役条件以 K8s 仓库
   `sunmoonai/docs/architecture-v2/R7.1-legacy-retirement-closeout.md` 为准。
