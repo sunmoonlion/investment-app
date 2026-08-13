@@ -27,13 +27,12 @@ API、Celery Worker、Scheduler 与 Migration 是同一个 `investment-backend` 
 `k8s-scaffold/` 或四组件 `init.sh`；Architecture v2 部署的唯一模板来源是
 `tpl-app/k8s-scaffold-v2`。
 
-## 迁移边界
+## 已完成的迁移边界
 
 - 源码身份改为 `investment-*`，但合法的投资研究领域术语可以继续使用 `research`；禁止全局替换。
-- 当前 R4 只做隔离环境中的模板同步、应用身份改名和完整门禁。
-- 现有 Research 的 K8s 运行态、数据库、凭据、PVC、镜像和 Casdoor Client 是回滚面，R7 前不得删除。
-- 真实数据迁移、切读和切写属于 R5。
-- 架构与执行边界以 K8s 仓库的 `sunmoonai/docs/investment清理和改名.md` 为准。
+- R4 已完成隔离模板同步和应用身份改名；R5 已完成真实数据迁移与切换；R7 已发布 `2.0.0`。
+- R7.1 观察窗关闭后，旧 Research Kubernetes 运行面已按白名单退役；历史数据和迁移证据仍保留。
+- 当前架构与退役边界以 K8s 仓库 `sunmoonai/docs/architecture-v2/` 为准。
 
 ## 子模块协作
 
@@ -51,4 +50,7 @@ git push gitee architecture-v2
 ```
 
 GitHub `origin` 是规范远端，Gitee `gitee` 是镜像远端；两者的 `architecture-v2` 必须指向同一
-提交。当前所有 `research-*-archive` remote 只用于追溯和回滚，禁止向其发布 Investment 提交。
+提交。GitHub 后端仓库已使用规范名称 `investment-backend`；Gitee 尚未创建同名仓库，因此其
+镜像 remote 暂时继续指向历史 URL `investment-admin-backend`。这只是远端命名兼容，不代表
+存在第二个 Backend；待 Gitee 仓库完成改名后只需更新 remote URL，不改源码、子模块指针或
+运行拓扑。旧 Research 仓库不配置为本地发布 remote；历史追溯使用 tag 和 Git 历史。
