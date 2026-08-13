@@ -53,3 +53,6 @@ GitHub `origin` 是规范远端，Gitee `gitee` 是镜像远端；两者的 `arc
 提交。两个远端的后端仓库均使用规范名称 `investment-backend`，本地 remote 不得再指向
 `investment-admin-backend`。旧 Research 仓库不配置为本地发布 remote；历史追溯使用 tag 和
 Git 历史。
+
+开发环境晋级生产的配置分层与检查表见
+[dev-to-prod-deploy](dev-to-prod-deploy/README.md)。
