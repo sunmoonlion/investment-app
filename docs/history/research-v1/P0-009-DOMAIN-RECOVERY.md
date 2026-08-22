@@ -11,14 +11,14 @@ dependency directories into the post-migration repositories.
 Inspect a historical file without restoring it:
 
 ```bash
-git -C /home/zymun/investment-app/investment-web-frontend \
+git -C /home/zymun/master/investment-app/investment-web-frontend \
   show p0-009a-pre-20260729:app/components/agent/agent-console.tsx
 ```
 
 Create an isolated recovery worktree:
 
 ```bash
-git -C /home/zymun/investment-app/investment-web-frontend \
+git -C /home/zymun/master/investment-app/investment-web-frontend \
   worktree add /tmp/research-web-frontend-pre-p0-009 \
   p0-009a-pre-20260729
 ```
