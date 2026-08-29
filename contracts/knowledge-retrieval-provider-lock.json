@@ -5,6 +5,6 @@
   "schemas": {
     "knowledge-retrieval-request.schema.json": "1a09240f1183e13eff708fd6dbc5a39742d29bbcdd9d86b4646232e55e3cacf8",
     "knowledge-retrieval-response.schema.json": "1a0fef964e5c06e5dc7dff18f45b00713ba9bac79d44ccbed928b3ba6bd52fe5",
-    "citation.schema.json": "b5cf350f4a9360cfd2211d66fcd65018fd3f1f1300e8071a480ce5ffcaa768c8"
+    "citation.schema.json": "330aecdedbac40198116217f514cbe953afdba96fab0861d78c9d5bc5807b180"
   }
 }
