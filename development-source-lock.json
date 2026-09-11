@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "kind": "development-source-lock",
+  "repository": "investment-app",
+  "formal_release": false,
+  "task": "durable-delivery-luna-20260911",
+  "release_boundary": "Source-only development candidate; historical formal release and deployed images are unchanged.",
+  "components": [
+    {
+      "path": "investment-backend",
+      "commit": "00b1b55cb1d186224e57fe3528998b6734ecb327",
+      "tree": "3c2aa7ff3bb32c35e785888d8528d3dbc6b4ee59",
+      "remote_branch": "origin/luna/durable-delivery-20260911-local"
+    },
+    {
+      "path": "investment-admin-frontend",
+      "commit": "950d9dbf3d788f3491e775b6da64223d5610ce6c",
+      "tree": "f7be0d2dd679f7f28d6423ef3af802a04cf45838",
+      "remote_branch": "origin/luna/durable-delivery-20260911-local"
+    },
+    {
+      "path": "investment-web-frontend",
+      "commit": "990977fa4f2b2cd54dcb1d2a673be7bd314222c7",
+      "tree": "0a9a877f2764d5048bff7b1fc8ea0dd168241558",
+      "remote_branch": "origin/luna/durable-delivery-20260911-local"
+    }
+  ]
+}
