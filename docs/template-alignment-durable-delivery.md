@@ -78,3 +78,16 @@ Investment 固定 `investment-backend@9622af0`；日志策略、Postgres 包装�
 PG/Redis 与共享契约向量；新增 8 项日志测试。没有调用真实 LLM 或金融数据。
 不改 Agent 状态、租约、投递、前端、迁移或服务契约；没有 KIND、真实身份或发布回滚
 验收。源码日志降噪不等于完整脱敏、告警/指标或运行态验收。
+
+## 2026-09-13 B7b：API schema readiness 增量对齐
+
+模板 `tpl-backend@ed8d5dc`、Info、Knowledge 固定提交依次过门禁后才同步本仓。
+Investment 固定 `investment-backend@85f8cb7` 完整 **242 passed / 0 skipped**（26.87 秒），
+Ruff/Pyright 通过。新增 19 项真实隔离 PG 的迁移/降级/再升级、SELECT 权限、
+锁等待超时及恢复测试；旧 Agent/Redis/契约回归保留，没有调用真实 LLM 或金融数据。
+
+共 4 文件：schema_readiness、测试、说明逐字同步，API 只加入相同探测增量。
+领域路由/身份与 Agent 执行保留，期望 revision 取本仓迁移链，无新增影子配置、
+临时兼容或违规漂移。本次增量对齐不等于全仓或全部角色验收。
+没有改迁移/前端/契约/部署；业务 API principal、KIND、真实身份和联合发布/回滚未验收。
+严格 revision 不匹配会拒绝 ready，不能以旧镜像直连新库作为默认回滚。
