@@ -91,3 +91,18 @@ Ruff/Pyright 通过。新增 19 项真实隔离 PG 的迁移/降级/再升级、
 临时兼容或违规漂移。本次增量对齐不等于全仓或全部角色验收。
 没有改迁移/前端/契约/部署；业务 API principal、KIND、真实身份和联合发布/回滚未验收。
 严格 revision 不匹配会拒绝 ready，不能以旧镜像直连新库作为默认回滚。
+
+## 2026-09-13 B7d：只读投递观测增量对齐
+
+模板 `tpl-backend@1f8941f`、Info@9ea1c5e、Knowledge@d16fb6c 固定提交依次过门禁后
+接入本仓。Investment 固定 `investment-backend@7113e52` 全量 **269 passed / 0 skipped**
+（30.52 秒），Ruff/Pyright 通过；真实隔离 PG/Redis 与共享契约，没有调用金融数据或 LLM。
+
+6 个新文件：CLI、聚合器、公共 24 项测试、说明四文件与模板逐字一致；observer 工厂增加
+实际 AgentDelivery，此差异属领域扩展，另有 3 项 Agent 观测测试。不复制 topic/consumer/
+lease 策略，不修改 Agent 执行/重放/对账或公共 handler。新增工厂确保空通用 registry 不会
+漏掉 Agent；缺领域租约表失败而非降级为零，notification 发布完成不要求 agent.executor 回执。
+本增量无配置差异、临时兼容或违规漂移，不以此重新声明全仓对齐。
+
+未建立受保护 scrape/告警/角色活性探针，不修改 API/前端/迁移/契约/部署，也不宣称
+业务 principal、KIND、真实身份或发布回滚验收。只读 gauge 不等于全套 Agent 产品指标。
