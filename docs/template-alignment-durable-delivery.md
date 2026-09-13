@@ -1,5 +1,71 @@
 # Investment 模板对齐：可靠投递开发候选
 
+## 2026-09-13 暂停集成
+
+所有者改为暂停并同步现有成果，本次父仓固定后端 `68f776edf6f8155f4e5ebfc4e321a17da229dc95`。
+后续 B7u 固定完整回归 402 passed / 0 skipped；累计证据与未完项见 k8s
+`sunmoonai/docs/v5-backlog-disposition-luna.md` 和 `v5-backlog-joint-runtime-identity-luna.md`。
+下文“本地/尚未推送”保留为各包当时历史；源码同步不是正式镜像发布或业务身份切换。
+
+## 2026-09-13 B7j 回执进展（本地，未发布）
+
+模板最终 `tpl-backend@a91eb3e284ae91d4bc6b82fe567c4163cfa728f0` 全量 255 项，
+Info 500 项、Knowledge 415 项修订后依次通过，再复验 Investment 最终提交
+`investment-backend@3d9531d1250d035aa13eb197198b6c5672450856`：
+**399 passed / 0 skipped，79.13 秒**，Ruff/Pyright 通过。
+六个公共文件与模板一致；既有 Agent 观测测试另补七条回执字段断言及一项归档保护
+测试，保留实际 agent.executor consumer 和 notification 无回执语义，不修改领域生产代码。
+
+首轮 `c90f522c620e9bedb09728e609b773aafad91c28` 在 167 passed 后新 gauge 下降测试
+失败：DELETE Outbox 经 CASCADE 触发旧 Agent 归档的语句级只读保护，即使旧表为空
+也拒绝。未禁用保护或改迁移；公共测试从模板重新修正为移除隔离合成回执，再按固定
+顺序完整复验。新增领域回归确认上述保护仍生效、失败后原 Outbox 数据保留。
+这不是批准/实现归档清理；后续保留策略须另处置旧归档引用和回滚窗。
+
+差异分类：AgentDelivery/租约/领域 handler 原样保留；无配置新增差异、临时兼容或
+公共增量违规漂移，领域测试是显式扩展，不宣称全仓相同。
+真实共用 prefork/PG/Redis/契约场景通过；回执不是业务成功量、per-worker 健康或
+真实 Provider/部署验收。监控仍未来 N4-OPS-01，本轮无 Secret/迁移/镜像/部署变更。
+六文件摘要、失败根因和门禁见 k8s `sunmoonai/docs/v5-backlog-worker-progress-luna.md`；
+父仓 gitlink 不暂存、master 不改、不推送，等待最终统一集成。
+
+## 2026-09-13 B7i 本地增量（尚未发布）
+
+模板固定 `tpl-backend@ed157e41f11e5e20e6b77812890cb55d382b58f4` 全量 243 项，
+Info 488 项、Knowledge 403 项逐仓通过后，才同步本仓。Investment 固定
+`investment-backend@6a5bff975649a548079e5eb82ee2b7cdb0872981` 的 Ruff/Pyright
+通过，完整 **386 passed / 0 skipped，68.66 秒**。
+五个新增 Scheduler 活动/CLI/测试/说明文件逐字同步，bootstrap 只加观察类选择。
+差异分类：AgentDelivery、Pilot、租约、领域任务及调度清单保留；配置无新增差异，
+使用原 schedule 路径；无临时兼容层或公共增量违规漂移，不宣称全仓相同。
+
+真实本仓 Beat 发布及暂停/恢复/重启、既有真实 PG/Redis 故障与契约回归通过。
+观察的是 Linux 本机循环和发送调用，不当作 Agent/Worker 业务完成或实际部署验收；
+无镜像/部署/迁移/身份修改。监控安装/采集/告警送达由未来 N4-OPS-01 接收，未实施。
+本地提交与证据见 k8s `sunmoonai/docs/v5-backlog-scheduler-activity-luna.md`；
+父仓 gitlink 不暂存、不推送，master 和云端留待最终统一集成。
+
+## 2026-09-13 B7h 本地增量（尚未发布）
+
+模板 `c66654a591b186ac814cadb907defc421e94aba6` → Investment
+`3b6c215fd80cc66057ea82bb762fd02fc42da30b`，等 Knowledge 完整门禁通过后实施。
+新增 `GET /api/internal/v1/delivery/metrics`，签名服务身份与 `delivery:observe`
+隔离浏览器身份；使用既有只读 collector/API 池，进程单次准入、失败无假零/旧值。
+公共 endpoint、24 项 HTTP 测试、观测说明三文件 SHA-256 与模板相同；路由和响应头
+仅同一增量。AgentDelivery 的真实 consumer/租约及 notification 语义、Agent/Pilot
+路由完全保留，没有用模板空 handler 覆盖领域 observer。
+
+差异分类：领域扩展保留；Investment 身份/audience 配置保留且无默认授权；没有新增
+兼容层；本包公共三文件无违规漂移。前端、迁移、部署与依赖未变。首轮 Ruff/Pyright
+通过，完整回归 342 passed / 0 skipped（55.48 秒），固定提交复验回执见 k8s
+`sunmoonai/docs/v5-backlog-metrics-http-luna.md`；本节不宣称重新完成全量模板比较。
+父仓 gitlink、master、远端/云端均保持原位，最后统一集成；非业务部署或真实告警验收。
+
+同轮 Info 复验发现的恢复期预算泄漏已由模板确定性复现并修正，逐仓过门禁后同步
+到 Investment；只追加两份同模板的测试范围修正，正式 2 秒预算及运行代码不变。
+最终本地检查点 `681256f5c39941cfc7573b44a2e3702f0f7eaeb1`，固定提交
+Ruff/Pyright 通过，343 passed / 0 skipped（56.40 秒）；342 项为首轮历史。
+
 日期：2026-09-11。模板、Info、Knowledge 依次验证后接入；保留上一轮
 Agent 可靠性提交 `5e9898e`。本文是开发证据，不是正式发布、真实模型或业务交易验收。
 
@@ -119,3 +185,18 @@ Worker 场景及说明，四文件逐字同步；旧观测锁超时测试同步�
 领域 overlay 原样保留；无新增配置差异、临时兼容或违规漂移，仅本包增量对齐。
 未改历史 release/bundle、业务数据/Secret/迁移/前端/DTO；下次新镜像发布才接实例探针。
 不把控制面队列/注册检查当实际消费进展、Scheduler 活性或真实身份/KIND/回滚验收。
+
+
+## 2026-09-13 B7f：显式投递状态与时钟回退
+
+模板本地固定 `tpl-backend@1c5173b` 先过 176 项完整门禁，再串行 Info→Knowledge→Investment。
+本仓本地固定 `investment-backend@24a7512` 全量 **318 passed / 0 skipped**，Ruff/Pyright 通过。
+公共四生产文件、9 项故障回归及说明六文件与模板 SHA-256 一致。
+新增四项领域租约回归；AgentDelivery 的释放/完成分支及 Pilot 取消同步明确失效状态，保留独立 session 租约、取消 epoch 递增和权限检查。
+没有新增配置差异、临时兼容或违规漂移；这是增量对齐，不重新声称全仓相同。
+
+释放使用负无穷而不删除 epoch 行，立即入队/重放/对账不添加墙钟门槛；真正预约与退避保留。
+原失败断言未改，先在旧代码确定性复现再验证修复；详细记录在 k8s 的
+v5-backlog-clock-regression-luna.md。没有改系统校时、迁移/前端/契约/Secret/镜像或业务部署。
+本轮按所有者要求只保存本地 Luna 候选，父仓 gitlink 暂未更新，未合并 master 或推送同步；
+待剩余处置完成后统一集成。真实身份/KIND/发布回滚与运行监控不因本次通过而自动销账。
