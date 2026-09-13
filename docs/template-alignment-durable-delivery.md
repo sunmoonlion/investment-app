@@ -106,3 +106,16 @@ lease 策略，不修改 Agent 执行/重放/对账或公共 handler。新增工
 
 未建立受保护 scrape/告警/角色活性探针，不修改 API/前端/迁移/契约/部署，也不宣称
 业务 principal、KIND、真实身份或发布回滚验收。只读 gauge 不等于全套 Agent 产品指标。
+
+## 2026-09-13 B7e：Worker 消费配置检查增量
+
+模板 `5369862` → Info `7755da2` → Knowledge `7b11608` 依次通过原始完整门禁后接入。
+Investment 固定 `investment-backend@d231266` 完整 **305 passed / 0 skipped**
+（50.76 秒），Ruff/Pyright 通过。新增 CLI、35 单元、1 真实 RabbitMQ/本仓 prefork
+Worker 场景及说明，四文件逐字同步；旧观测锁超时测试同步局部故障作用域修正。
+公共五文件与模板一致，原 Agent 专项观测与真实领域任务注册保留，CLI 从本镜像注册表
+取得全部 app.tasks 任务，不另建领域清单。不调用金融数据、真实 Provider 或模型。
+
+领域 overlay 原样保留；无新增配置差异、临时兼容或违规漂移，仅本包增量对齐。
+未改历史 release/bundle、业务数据/Secret/迁移/前端/DTO；下次新镜像发布才接实例探针。
+不把控制面队列/注册检查当实际消费进展、Scheduler 活性或真实身份/KIND/回滚验收。
