@@ -65,3 +65,16 @@ test_durable_delivery_db。默认 handler 注册为空，Agent 经 DurableDelive
 当前默认 Web 尚未接 Agent、预算与完整 Profile 执行等既有未接线项未在本轮扩张。
 历史发布清单与部署 bundle 未改写；开发源码锁 `formal_release=false` 不代替正式
 源码/镜像/部署/数据联合发布锁。最终 master/worktree 同步另行核验，不由本报告推定。
+
+## 2026-09-13 B7a：公共日志增量对齐
+
+本节不改写以上 2026-09-11 历史证据。模板固定 `tpl-backend@553c36b`，
+Investment 固定 `investment-backend@9622af0`；日志策略、Postgres 包装器、专项测试和
+说明逐字相同。Worker 只同步信号注册，保留 Agent/Pilot 任务及两个对账调度条目，
+此差异属领域扩展。无新增配置差异、临时兼容或违规漂移；不重新宣称全仓对齐。
+
+模板 → Info → Knowledge 均完成固定提交门禁后才同步 Investment。
+静态检查通过，固定提交全量 **223 passed / 0 skipped**（22.93 秒），真实一次性
+PG/Redis 与共享契约向量；新增 8 项日志测试。没有调用真实 LLM 或金融数据。
+不改 Agent 状态、租约、投递、前端、迁移或服务契约；没有 KIND、真实身份或发布回滚
+验收。源码日志降噪不等于完整脱敏、告警/指标或运行态验收。
