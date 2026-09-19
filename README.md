@@ -32,7 +32,7 @@ API、Celery Worker、Scheduler 与 Migration 是同一个 `investment-backend` 
 - 源码身份改为 `investment-*`，但合法的投资研究领域术语可以继续使用 `research`；禁止全局替换。
 - R4 已完成隔离模板同步和应用身份改名；R5 已完成真实数据迁移与切换；R7 已发布 `2.0.0`。
 - R7.1 观察窗关闭后，旧 Research Kubernetes 运行面已按白名单退役；历史数据和迁移证据仍保留。
-- 当前架构与退役边界以 K8s 仓库 `sunmoonai/docs/architecture-v2/` 为准。
+- 当前架构以 K8s 仓库 `sunmoonai/docs/project-guide/` 为入口；历史迁移与退役证据按 `sunmoonai/docs/legacy-backlog/verification-index.md` 的固定 Git 版本查询，不作当前运行指令。
 
 ## 子模块协作
 
