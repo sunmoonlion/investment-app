@@ -8,8 +8,8 @@
   "components": [
     {
       "path": "investment-backend",
-      "commit": "e5084f8b6a525e8f41334c76c1b8081ab3f9fdeb",
-      "tree": "4b86416abeefa5c085dad5317107d5df1e4dec87",
+      "commit": "923bc0ab6da7d478101542dce9a62b93756c8318",
+      "tree": "40557a914472e10e0b7a2bb14c9b0a051199e9bb",
       "remote_branch": "origin/master"
     },
     {
