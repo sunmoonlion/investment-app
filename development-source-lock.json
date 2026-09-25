@@ -8,8 +8,8 @@
   "components": [
     {
       "path": "investment-backend",
-      "commit": "f7c7404380f8dc281c1c2dacca51c8091b63baf1",
-      "tree": "e6ab1273d934d8d7a886e4d3c9a8fdc9d4bb9968",
+      "commit": "a14b070a97ab893376bdfe29609ec82b7b8b7c34",
+      "tree": "7d61f6cd152a51e24e89cc0de2eb368b63651105",
       "remote_branch": "origin/fable"
     },
     {
@@ -20,8 +20,8 @@
     },
     {
       "path": "investment-web-frontend",
-      "commit": "9eb4c0155c482af43a063f0e169753475d11a22f",
-      "tree": "73e17e78a387037b67113930eea3436b654015e1",
+      "commit": "a48043371c259e15a723f950a34ba2a30eded5ce",
+      "tree": "f6f280c09e26a4374df6574201f57c4e86304e1c",
       "remote_branch": "origin/fable"
     }
   ]
