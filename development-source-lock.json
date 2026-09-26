@@ -3,13 +3,13 @@
   "kind": "development-source-lock",
   "repository": "investment-app",
   "formal_release": false,
-  "task": "runner-token-kind-20260926",
+  "task": "thread-resume-kind-20260926",
   "release_boundary": "Immutable development candidate source; actual deployment requires the matching KIND release, prepared independent identities, and verified quiescent backup.",
   "components": [
     {
       "path": "investment-backend",
-      "commit": "23d321b9b1ed38394b355b33c6001c9f8c7d38e2",
-      "tree": "69c04ba144a33a76b861a9ea644578e095792de7",
+      "commit": "c89d8fe7491952d0dffd32ecebd4e5adc4042ab3",
+      "tree": "eb310486799081fcf766e6ebf4cf088de36bef99",
       "remote_branch": "origin/fable"
     },
     {
