@@ -1,10 +1,10 @@
 {
-  "provider": "knowledge-app",
+  "provider": "knowbase-app",
   "contract": "sunmoonai.knowledge.retrieval",
   "major": 1,
   "schemas": {
     "knowledge-retrieval-request.schema.json": "1a09240f1183e13eff708fd6dbc5a39742d29bbcdd9d86b4646232e55e3cacf8",
-    "knowledge-retrieval-response.schema.json": "1a0fef964e5c06e5dc7dff18f45b00713ba9bac79d44ccbed928b3ba6bd52fe5",
+    "knowledge-retrieval-response.schema.json": "aa664cdc6e069f991fba38ff3490170a8e471dd52fb139b4c465c18bcce1fc10",
     "citation.schema.json": "330aecdedbac40198116217f514cbe953afdba96fab0861d78c9d5bc5807b180"
   }
 }

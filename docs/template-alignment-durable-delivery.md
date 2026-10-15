@@ -103,7 +103,7 @@ test_durable_delivery_db。默认 handler 注册为空，Agent 经 DurableDelive
 | 暂时兼容 | Redis 额外 ACL SAVE、前端 TPL_SSR_* 模板接口；删除未消费的 ADMIN_FRONTEND/WEB_FRONTEND 影子配置。未验证 ACL SAVE 重启持久化或修复既有 Redis CLI 服务端错误传播。 |
 | 违规漂移（已修正） | Redis 缺 resetchannels；Backend rebuild 使用正式标签；前端沿用历史候选 tag 并默认自动推送。同步模板/Info 已验证保护、开发 tag、默认不推送及当前说明。 |
 | 接入缺陷（实测修正） | Agent/通用任务交替运行留下跨循环 PG 池；Agent 任务边界成功/失败都清理资源。随后新进程先导入公共 task 暴露循环依赖；先补失败测试，再延迟导入共享 pump。两轮失败现场保留。 |
-| 验证工具缺陷（修正） | Calico 脚本仍给目标贴 knowledge-r5，与当前 Investment 策略的 knowledge 不匹配；只修测试目标标签，未放宽部署策略。 |
+| 验证工具缺陷（修正） | Calico 脚本仍给目标贴 knowbase-r5，与当前 Investment 策略的 knowbase 不匹配；只修测试目标标签，未放宽部署策略。 |
 
 ## 最终开发证据
 
