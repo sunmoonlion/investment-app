@@ -9,3 +9,15 @@ check out the Knowledge provider artifact, set
 `KNOWBASE_RETRIEVAL_CONTRACT_DIR`, and run the Research consumer tests.
 Updating this lock without provider and consumer tests is not a valid contract
 upgrade. Generated or copied schemas must not become a second source of truth.
+
+## Knowbot manifest (knowmart)
+
+`knowmart-knowbot-manifest-lock.json` pins the outer knowbot manifest that the
+workbench summons from knowmart (SDD 0027 P4, service identity
+`knowmart:summon`). The source of truth is
+`knowmart-app/contracts/knowbot/v1/`. The backend test
+`tests/test_knowbot_contract_lock.py` checks the lock against a sibling
+`knowmart-app` checkout (or `KNOWMART_KNOWBOT_MANIFEST_SCHEMA_PATH`) and
+validates the workbench's sample manifest against the provider schema. The
+inner `pack` is the workbench's own expert-pack shape and is validated by the
+backend (`app/domain/workbench/knowbots.py`).
