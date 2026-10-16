@@ -21,3 +21,13 @@ workbench summons from knowmart (SDD 0027 P4, service identity
 validates the workbench's sample manifest against the provider schema. The
 inner `pack` is the workbench's own expert-pack shape and is validated by the
 backend (`app/domain/workbench/knowbots.py`).
+
+## Knowbot test runs (knowlab)
+
+`knowlab-test-run-lock.json` pins the `knowbot-test-run/v1` contract that the
+workbench implements as a runtime (SDD 0027 §3.4, service identity
+`investment:testrun`, routes under `/api/internal/v1/knowbot-runtime`). The
+source of truth is `knowlab-app/contracts/knowbot-test-run/v1/`. The backend
+test `tests/test_knowbot_test_run_lock.py` checks every pinned digest against a
+sibling `knowlab-app` checkout and validates a sample request and the results
+the workbench produces against the provider schemas.
