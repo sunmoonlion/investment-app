@@ -31,3 +31,13 @@ source of truth is `knowlab-app/contracts/knowbot-test-run/v1/`. The backend
 test `tests/test_knowbot_test_run_lock.py` checks every pinned digest against a
 sibling `knowlab-app` checkout and validates a sample request and the results
 the workbench produces against the provider schemas.
+
+## Knowbot data (knowlab)
+
+`knowlab-knowbot-data-lock.json` pins the `knowbot-data/v1` contract the
+workbench calls to read the user's own data bound to a knowbot (SDD 0027 §3.5,
+service identity `knowlab:read`, routes under `/api/internal/v1/knowlab`). The
+source of truth is `knowlab-app/contracts/knowbot-data/v1/`. The backend test
+`tests/test_knowbot_data_lock.py` checks every pinned digest against a sibling
+`knowlab-app` checkout and validates the requests the workbench sends against
+the provider schemas.
