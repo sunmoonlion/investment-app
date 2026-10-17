@@ -1,11 +1,11 @@
 ---
-description: investment-app Architecture v2 三子模块父仓全局协作规则
+description: knowbench-app Architecture v2 三子模块父仓全局协作规则
 alwaysApply: true
 ---
 
-# investment-app 全局规则
+# knowbench-app 全局规则
 
-本仓库是 Investment 实例父仓，聚合统一 FastAPI Backend、Next.js Admin 与 Next.js Web 三个 Git 子模块。实例化逻辑只属于 `tpl-app`，不得在本仓恢复旧 `init.sh` 或四组件拓扑。
+本仓库是 Knowbench 实例父仓，聚合统一 FastAPI Backend、Next.js Admin 与 Next.js Web 三个 Git 子模块。实例化逻辑只属于 `tpl-app`，不得在本仓恢复旧 `init.sh` 或四组件拓扑。
 
 - 目标优先级：先跑通主链路，再做重构和升级。
 - 每次改动都要可验证：提供启动步骤、验证命令、预期结果。

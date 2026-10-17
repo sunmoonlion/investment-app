@@ -26,7 +26,7 @@ backend (`app/domain/workbench/knowbots.py`).
 
 `knowlab-test-run-lock.json` pins the `knowbot-test-run/v1` contract that the
 workbench implements as a runtime (SDD 0027 §3.4, service identity
-`investment:testrun`, routes under `/api/internal/v1/knowbot-runtime`). The
+`knowbench:testrun`, routes under `/api/internal/v1/knowbot-runtime`). The
 source of truth is `knowlab-app/contracts/knowbot-test-run/v1/`. The backend
 test `tests/test_knowbot_test_run_lock.py` checks every pinned digest against a
 sibling `knowlab-app` checkout and validates a sample request and the results

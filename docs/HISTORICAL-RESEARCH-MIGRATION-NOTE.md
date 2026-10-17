@@ -4,12 +4,12 @@
 最后更新：2026-08-09
 
 本目录中名称仍含 `Research`、`P0-009` 或旧四组件拓扑的材料，仅用于说明
-`research-app` 到 `investment-app` 的来源、恢复和迁移证据，不是当前运行手册。
+`research-app` 到 `knowbench-app` 的来源、恢复和迁移证据，不是当前运行手册。
 
 当前有效事实只有：
 
-- 活动源码拓扑为 `investment-backend`、`investment-admin-frontend`、
-  `investment-web-frontend` 三个子模块；
+- 活动源码拓扑为 `knowbench-backend`、`knowbench-admin-frontend`、
+  `knowbench-web-frontend` 三个子模块；
 - API、Worker、Scheduler、Migration 是统一 Backend 的运行角色；
 - 当前部署模板来源为 `tpl-app/k8s-deployment`；
 - R7.1 已关闭回滚观察窗并退役 Research K8s 运行态；

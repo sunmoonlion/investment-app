@@ -1,5 +1,5 @@
 ---
-description: Admin/Web/Internal 统一 FastAPI Backend（investment-backend）
+description: Admin/Web/Internal 统一 FastAPI Backend（knowbench-backend）
 globs: **/*backend/**/*.py
 alwaysApply: false
 ---

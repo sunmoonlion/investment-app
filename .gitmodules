@@ -1,9 +1,9 @@
-[submodule "investment-backend"]
-	path = investment-backend
-	url = https://github.com/sunmoonlion/investment-backend.git
-[submodule "investment-admin-frontend"]
-	path = investment-admin-frontend
-	url = https://github.com/sunmoonlion/investment-admin-frontend.git
-[submodule "investment-web-frontend"]
-	path = investment-web-frontend
-	url = https://github.com/sunmoonlion/investment-web-frontend.git
+[submodule "knowbench-backend"]
+	path = knowbench-backend
+	url = https://github.com/sunmoonlion/knowbench-backend.git
+[submodule "knowbench-admin-frontend"]
+	path = knowbench-admin-frontend
+	url = https://github.com/sunmoonlion/knowbench-admin-frontend.git
+[submodule "knowbench-web-frontend"]
+	path = knowbench-web-frontend
+	url = https://github.com/sunmoonlion/knowbench-web-frontend.git

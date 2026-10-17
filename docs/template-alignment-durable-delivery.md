@@ -1,4 +1,4 @@
-# Investment 模板对齐：可靠投递开发候选
+# Knowbench 模板对齐：可靠投递开发候选
 
 ## 2026-09-13 暂停集成
 
@@ -10,8 +10,8 @@
 ## 2026-09-13 B7j 回执进展（本地，未发布）
 
 模板最终 `tpl-backend@a91eb3e284ae91d4bc6b82fe567c4163cfa728f0` 全量 255 项，
-Info 500 项、Knowledge 415 项修订后依次通过，再复验 Investment 最终提交
-`investment-backend@3d9531d1250d035aa13eb197198b6c5672450856`：
+Info 500 项、Knowledge 415 项修订后依次通过，再复验 Knowbench 最终提交
+`knowbench-backend@3d9531d1250d035aa13eb197198b6c5672450856`：
 **399 passed / 0 skipped，79.13 秒**，Ruff/Pyright 通过。
 六个公共文件与模板一致；既有 Agent 观测测试另补七条回执字段断言及一项归档保护
 测试，保留实际 agent.executor consumer 和 notification 无回执语义，不修改领域生产代码。
@@ -32,8 +32,8 @@ Info 500 项、Knowledge 415 项修订后依次通过，再复验 Investment 最
 ## 2026-09-13 B7i 本地增量（尚未发布）
 
 模板固定 `tpl-backend@ed157e41f11e5e20e6b77812890cb55d382b58f4` 全量 243 项，
-Info 488 项、Knowledge 403 项逐仓通过后，才同步本仓。Investment 固定
-`investment-backend@6a5bff975649a548079e5eb82ee2b7cdb0872981` 的 Ruff/Pyright
+Info 488 项、Knowledge 403 项逐仓通过后，才同步本仓。Knowbench 固定
+`knowbench-backend@6a5bff975649a548079e5eb82ee2b7cdb0872981` 的 Ruff/Pyright
 通过，完整 **386 passed / 0 skipped，68.66 秒**。
 五个新增 Scheduler 活动/CLI/测试/说明文件逐字同步，bootstrap 只加观察类选择。
 差异分类：AgentDelivery、Pilot、租约、领域任务及调度清单保留；配置无新增差异，
@@ -47,7 +47,7 @@ Info 488 项、Knowledge 403 项逐仓通过后，才同步本仓。Investment �
 
 ## 2026-09-13 B7h 本地增量（尚未发布）
 
-模板 `c66654a591b186ac814cadb907defc421e94aba6` → Investment
+模板 `c66654a591b186ac814cadb907defc421e94aba6` → Knowbench
 `3b6c215fd80cc66057ea82bb762fd02fc42da30b`，等 Knowledge 完整门禁通过后实施。
 新增 `GET /api/internal/v1/delivery/metrics`，签名服务身份与 `delivery:observe`
 隔离浏览器身份；使用既有只读 collector/API 池，进程单次准入、失败无假零/旧值。
@@ -55,14 +55,14 @@ Info 488 项、Knowledge 403 项逐仓通过后，才同步本仓。Investment �
 仅同一增量。AgentDelivery 的真实 consumer/租约及 notification 语义、Agent/Pilot
 路由完全保留，没有用模板空 handler 覆盖领域 observer。
 
-差异分类：领域扩展保留；Investment 身份/audience 配置保留且无默认授权；没有新增
+差异分类：领域扩展保留；Knowbench 身份/audience 配置保留且无默认授权；没有新增
 兼容层；本包公共三文件无违规漂移。前端、迁移、部署与依赖未变。首轮 Ruff/Pyright
 通过，完整回归 342 passed / 0 skipped（55.48 秒），固定提交复验回执见 k8s
 `sunmoonai/docs/v5-backlog-metrics-http-luna.md`；本节不宣称重新完成全量模板比较。
 父仓 gitlink、master、远端/云端均保持原位，最后统一集成；非业务部署或真实告警验收。
 
 同轮 Info 复验发现的恢复期预算泄漏已由模板确定性复现并修正，逐仓过门禁后同步
-到 Investment；只追加两份同模板的测试范围修正，正式 2 秒预算及运行代码不变。
+到 Knowbench；只追加两份同模板的测试范围修正，正式 2 秒预算及运行代码不变。
 最终本地检查点 `681256f5c39941cfc7573b44a2e3702f0f7eaeb1`，固定提交
 Ruff/Pyright 通过，343 passed / 0 skipped（56.40 秒）；342 项为首轮历史。
 
@@ -72,11 +72,11 @@ Agent 可靠性提交 `5e9898e`。本文是开发证据，不是正式发布、�
 ## 全量源码比较
 
 三个子仓全部 Git 可见文件逐路径计算 SHA-256，仅自动归一 tpl/Tpl/TPL；
-未使用模板覆盖领域扩展。清单为接手目录 `investment-source-alignment.json`，
-可复跑 `audit-source-alignment.py investment`。最终干净 commit/tree 由父仓
+未使用模板覆盖领域扩展。清单为接手目录 `knowbench-source-alignment.json`，
+可复跑 `audit-source-alignment.py knowbench`。最终干净 commit/tree 由父仓
 `development-source-lock.json` 固定，不能只把工作区 HEAD 当候选全部内容。
 
-| 组件 | 完全一致 | 身份归一后相同 | 其它同路径差异 | Investment 独有 | 模板独有 |
+| 组件 | 完全一致 | 身份归一后相同 | 其它同路径差异 | Knowbench 独有 | 模板独有 |
 | --- | --- | --- | --- | --- | --- |
 | Backend | 109 | 8 | 39 | 135 | 3 |
 | Admin Frontend | 100 | 9 | 16 | 2 | 0 |
@@ -96,14 +96,14 @@ test_durable_delivery_db。默认 handler 注册为空，Agent 经 DurableDelive
 | 领域扩展 | AgentDelivery 只保留会话执行与过期副作用对账；领取/发布完成/重放/死信方法就是模板方法，Agent pump 委托公共循环，只适配 Celery 与 Redis。旧直接 producer 方法已删除。 |
 | 领域扩展 | Web create/cancel DTO、Port、路由和 reference adapter，前端 research-workspace、runtime 面板、交互 client/cancel hook、契约测试。保留已有实例 overlay；当前默认 Web adapter 仍拒绝，不能宣称生产已接 Agent。 |
 | 领域扩展 | 七条本 App 线性迁移，新增公共死信迁移调用模板 DDL；Agent 会话租约不是第二份投递租约。旧死信只读档案不再是真源，降级携带新增/重放回执。 |
-| 配置 | App 名称、标题、身份 enum 增补 investment、cookie/auth 参数名、服务身份/scope、config/env、库/角色/桶/索引、LangGraph/psycopg 依赖及 lock；保留认证/授权/日志/审计公共骨架。 |
+| 配置 | App 名称、标题、身份 enum 增补 knowbench、cookie/auth 参数名、服务身份/scope、config/env、库/角色/桶/索引、LangGraph/psycopg 依赖及 lock；保留认证/授权/日志/审计公共骨架。 |
 | 配置 | Admin 品牌/layout/navigation，Web dashboard/public-home 与翻译、Playwright 显式后端路径及禁复用 server；都属既有研究实例 UI，不清空替换。 |
 | 暂时兼容 | 旧 graph 任务拒绝执行但保留注册与测试辅助；LeaseLost 是公共异常兼容导出；Agent task 清理自己 PG/Redis 池以与通用任务共存。 |
 | 暂时兼容 | UUID Python/DB 双侧默认、固定虚拟 tpl audience、原 E501/B008/UP046 lint 例外、脚本中既有格式差异。未以公共同步为由重排 6 个非本轮 scripts 文件。 |
 | 暂时兼容 | Redis 额外 ACL SAVE、前端 TPL_SSR_* 模板接口；删除未消费的 ADMIN_FRONTEND/WEB_FRONTEND 影子配置。未验证 ACL SAVE 重启持久化或修复既有 Redis CLI 服务端错误传播。 |
 | 违规漂移（已修正） | Redis 缺 resetchannels；Backend rebuild 使用正式标签；前端沿用历史候选 tag 并默认自动推送。同步模板/Info 已验证保护、开发 tag、默认不推送及当前说明。 |
 | 接入缺陷（实测修正） | Agent/通用任务交替运行留下跨循环 PG 池；Agent 任务边界成功/失败都清理资源。随后新进程先导入公共 task 暴露循环依赖；先补失败测试，再延迟导入共享 pump。两轮失败现场保留。 |
-| 验证工具缺陷（修正） | Calico 脚本仍给目标贴 knowbase-r5，与当前 Investment 策略的 knowbase 不匹配；只修测试目标标签，未放宽部署策略。 |
+| 验证工具缺陷（修正） | Calico 脚本仍给目标贴 knowbase-r5，与当前 Knowbench 策略的 knowbase 不匹配；只修测试目标标签，未放宽部署策略。 |
 
 ## 最终开发证据
 
@@ -113,7 +113,7 @@ test_durable_delivery_db。默认 handler 注册为空，Agent 经 DurableDelive
 - Admin 44 单元 +10 配对；Web 49 单元（含共享向量）+7 配对，两端完整 check/build。
   真实 Casdoor 两面匿名401/登录200/跨面401/CSRF403/退出204/撤销401；TLS开启，
   回调转交候选进程内 ASGI，DB/Redis独立，不是完整部署态领域 UI 验收。
-- 最终镜像 `luna-investment-delivery:20260911-verified`，清单
+- 最终镜像 `luna-knowbench-delivery:20260911-verified`，清单
   `sha256:1c085f92cd5a339e1d50bcf8c0520fcba685f5761ce65388eecec467424dde75`。
   全新专用库与队列，真实 KIND Worker/Beat/RabbitMQ 公共重复投递通过；继而实际
   Agent/Graph/PostgreSQL checkpoint/独立 Redis 通知通过：completed、Agent Inbox=1、
@@ -135,11 +135,11 @@ test_durable_delivery_db。默认 handler 注册为空，Agent 经 DurableDelive
 ## 2026-09-13 B7a：公共日志增量对齐
 
 本节不改写以上 2026-09-11 历史证据。模板固定 `tpl-backend@553c36b`，
-Investment 固定 `investment-backend@9622af0`；日志策略、Postgres 包装器、专项测试和
+Knowbench 固定 `knowbench-backend@9622af0`；日志策略、Postgres 包装器、专项测试和
 说明逐字相同。Worker 只同步信号注册，保留 Agent/Pilot 任务及两个对账调度条目，
 此差异属领域扩展。无新增配置差异、临时兼容或违规漂移；不重新宣称全仓对齐。
 
-模板 → Info → Knowledge 均完成固定提交门禁后才同步 Investment。
+模板 → Info → Knowledge 均完成固定提交门禁后才同步 Knowbench。
 静态检查通过，固定提交全量 **223 passed / 0 skipped**（22.93 秒），真实一次性
 PG/Redis 与共享契约向量；新增 8 项日志测试。没有调用真实 LLM 或金融数据。
 不改 Agent 状态、租约、投递、前端、迁移或服务契约；没有 KIND、真实身份或发布回滚
@@ -148,7 +148,7 @@ PG/Redis 与共享契约向量；新增 8 项日志测试。没有调用真实 L
 ## 2026-09-13 B7b：API schema readiness 增量对齐
 
 模板 `tpl-backend@ed8d5dc`、Info、Knowledge 固定提交依次过门禁后才同步本仓。
-Investment 固定 `investment-backend@85f8cb7` 完整 **242 passed / 0 skipped**（26.87 秒），
+Knowbench 固定 `knowbench-backend@85f8cb7` 完整 **242 passed / 0 skipped**（26.87 秒），
 Ruff/Pyright 通过。新增 19 项真实隔离 PG 的迁移/降级/再升级、SELECT 权限、
 锁等待超时及恢复测试；旧 Agent/Redis/契约回归保留，没有调用真实 LLM 或金融数据。
 
@@ -161,7 +161,7 @@ Ruff/Pyright 通过。新增 19 项真实隔离 PG 的迁移/降级/再升级、
 ## 2026-09-13 B7d：只读投递观测增量对齐
 
 模板 `tpl-backend@1f8941f`、Info@9ea1c5e、Knowledge@d16fb6c 固定提交依次过门禁后
-接入本仓。Investment 固定 `investment-backend@7113e52` 全量 **269 passed / 0 skipped**
+接入本仓。Knowbench 固定 `knowbench-backend@7113e52` 全量 **269 passed / 0 skipped**
 （30.52 秒），Ruff/Pyright 通过；真实隔离 PG/Redis 与共享契约，没有调用金融数据或 LLM。
 
 6 个新文件：CLI、聚合器、公共 24 项测试、说明四文件与模板逐字一致；observer 工厂增加
@@ -176,7 +176,7 @@ lease 策略，不修改 Agent 执行/重放/对账或公共 handler。新增工
 ## 2026-09-13 B7e：Worker 消费配置检查增量
 
 模板 `5369862` → Info `7755da2` → Knowledge `7b11608` 依次通过原始完整门禁后接入。
-Investment 固定 `investment-backend@d231266` 完整 **305 passed / 0 skipped**
+Knowbench 固定 `knowbench-backend@d231266` 完整 **305 passed / 0 skipped**
 （50.76 秒），Ruff/Pyright 通过。新增 CLI、35 单元、1 真实 RabbitMQ/本仓 prefork
 Worker 场景及说明，四文件逐字同步；旧观测锁超时测试同步局部故障作用域修正。
 公共五文件与模板一致，原 Agent 专项观测与真实领域任务注册保留，CLI 从本镜像注册表
@@ -189,8 +189,8 @@ Worker 场景及说明，四文件逐字同步；旧观测锁超时测试同步�
 
 ## 2026-09-13 B7f：显式投递状态与时钟回退
 
-模板本地固定 `tpl-backend@1c5173b` 先过 176 项完整门禁，再串行 Info→Knowledge→Investment。
-本仓本地固定 `investment-backend@24a7512` 全量 **318 passed / 0 skipped**，Ruff/Pyright 通过。
+模板本地固定 `tpl-backend@1c5173b` 先过 176 项完整门禁，再串行 Info→Knowledge→Knowbench。
+本仓本地固定 `knowbench-backend@24a7512` 全量 **318 passed / 0 skipped**，Ruff/Pyright 通过。
 公共四生产文件、9 项故障回归及说明六文件与模板 SHA-256 一致。
 新增四项领域租约回归；AgentDelivery 的释放/完成分支及 Pilot 取消同步明确失效状态，保留独立 session 租约、取消 epoch 递增和权限检查。
 没有新增配置差异、临时兼容或违规漂移；这是增量对齐，不重新声称全仓相同。
